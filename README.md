@@ -13,7 +13,7 @@ example of the input
 example of the output
 ```json
 {
- "overall": 7.04
+ "overall": 7.04,
  "components": { "energy": 3.277, "time": 2.767, "transaction": 1 }
 }
 ```
@@ -25,36 +25,49 @@ ruby verion 2.6.5
 
 clone the repo
 ```
-git clone https://github.com/natevenn/charge_detail_record_api.git
-```
-
-install bundler
-```
-gem install bundler
+$ git clone https://github.com/natevenn/charge_detail_record_api.git
 ```
 
 **cd into the project** then run the following:
 
+install bundler version 2.2.11
+```
+$ gem install bundler:2.2.11
+```
+use bundler version 2.2.11
+```
+$ bundle _2.2.11_ install
+```
+
 bundle the dependencies
 ```
-bundle install
+$ bundle install
 ```
 
 Database creation and migration
 ```
-rake db:create db:migrate db:test:prepare
+$ rake db:create db:migrate db:test:prepare
 ```
 
 run the test suite
 ```
-RAILS_ENV=test rspec spec
+$ RAILS_ENV=test rspec spec
 ```
 
 running the application:
-from the commandline in the ruby project run
 ```
-rails server
+$ rails server
 ```
-
+example post request via curl
+```
+$ curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{
+  "rate": { "energy": 0.3, "time": 2, "transaction": 1 },
+  "cdr": { "meterStart": 1204307, "timestampStart": "2021-04-05T10:04:00Z", "meterStop": 1215230, "timestampStop":
+  "2021-04-05T11:27:00Z" }
+}' \
+  http://localhost:3000/rates
+```
 
 
