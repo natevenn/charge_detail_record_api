@@ -25,7 +25,7 @@ ruby verion 2.6.5
 
 clone the repo
 ```
-git clone git@github.com:natevenn/charge_detail_record_api.git
+git clone https://github.com/natevenn/charge_detail_record_api.git
 ```
 
 install bundler
