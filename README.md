@@ -42,12 +42,12 @@ bundle install
 
 Database creation and migration
 ```
-rake db:create db:migrate
+rake db:create db:migrate db:test:prepare
 ```
 
 run the test suite
 ```
-rspec spec
+RAILS_ENV=test rspec spec
 ```
 
 running the application:
