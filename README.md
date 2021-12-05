@@ -36,10 +36,10 @@ gem install bundler
 
 clone the repo
 ```
-
+git clone git@github.com:natevenn/charge_detail_record_api.git
 ```
 
-* __cd into the project__
+**cd into the project** then run the following:
 
 bundle the dependencies
 ```
