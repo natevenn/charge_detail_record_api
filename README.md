@@ -1,6 +1,6 @@
 <h1 align=center>Charge Detail Record API</h1>
 
-<p>The Charge Detail Record API provides a single post end point (/rates) that creates a detail record and a rate record and then returns a json object with the overall rate and the rate broken down into compoenents (energy, time, transaction).</p>
+<p>The Charge Detail Record API provides a single post end point (/rate) that creates a detail record and a rate record and then returns a json object with the overall rate and the rate broken down into compoenents (energy, time, transaction).</p>
 
 example of the input
 ```json
@@ -67,7 +67,7 @@ $ curl --header "Content-Type: application/json" \
   "cdr": { "meterStart": 1204307, "timestampStart": "2021-04-05T10:04:00Z", "meterStop": 1215230, "timestampStop":
   "2021-04-05T11:27:00Z" }
 }' \
-  http://localhost:3000/rates
+  http://localhost:3000/rate
 ```
 
 

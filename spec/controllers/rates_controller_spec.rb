@@ -39,13 +39,35 @@ describe RatesController, type: :controller do
     end
 
     context 'when unsuccessful' do
-      it 'returns a 400' do
-        new_charge_detail_record = ChargeDetailRecord.new
-        allow(ChargeDetailRecordBuilder).to receive(:call).and_return(new_charge_detail_record)
+      let(:params) do
+        {
+          "rate" => {
+            "energy" => 0.3,
+            "time" => 2,
+            "transaction" => nil
+          },
+          "cdr" => {
+            "meterStart" => 1204307,
+            "timestampStart" => "2021-04-05T10:04:00Z",
+            "meterStop" => nil,
+            "timestampStop" => "2021-04-05T11:27:00Z"
+          }
+        }
+      end
 
+      it 'returns a 400 with error message' do
         post :rate, params: params
 
+        response_body = JSON.parse(response.body)
+
         expect(response.status).to eq(400)
+
+        expect(response_body).to eq(
+          {
+            "meterStop"=>"can't be blank",
+            "transaction"=>"can't be blank"
+          }
+        )
       end
     end
   end
