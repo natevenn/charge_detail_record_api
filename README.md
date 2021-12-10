@@ -70,4 +70,16 @@ $ curl --header "Content-Type: application/json" \
   http://localhost:3000/rate
 ```
 
+## Docker
 
+Start rails application
+
+    docker-compose up -d
+
+Build database
+
+    docker-compose run web rake db:migrate
+
+Run tests
+
+    docker-compose run web rspec spec

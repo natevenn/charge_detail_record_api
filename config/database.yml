@@ -24,6 +24,9 @@ default: &default
 development:
   <<: *default
   database: charge_detail_record_api_development
+  host: db
+  username: postgres
+  password: secret
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
